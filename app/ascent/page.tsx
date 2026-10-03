@@ -132,7 +132,6 @@ export default function AscentPage() {
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 rounded-xl bg-white/10 px-4 py-3 text-xs uppercase tracking-wide text-white md:items-end md:text-right">
-            <span>Forge the Future</span>
             {latestIssue && <span className="text-[0.85rem] font-semibold">Latest issue · {latestIssue.title}</span>}
           </div>
         </div>

@@ -216,5 +216,3 @@ Built-in performance tracking monitors:
 - **Website**: https://d7leos.org
 
 ---
-
-*Forge the Future - Leadership Through Service*

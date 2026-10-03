@@ -8,32 +8,32 @@ const leadershipData = [
   { 
     role: 'District President', 
     name: 'Leo Lion Nipuni Wijesekara', 
-    photo: '/images/council/nipuni.jpg' 
+    photo: '/images/council/Nipuni.jpg'
   },
   { 
     role: 'Immediate Past District President', 
     name: 'Leo Lion Hansathi Imethma', 
-    photo: '/images/council/hansathi.jpg' 
+    photo: '/images/council/Hansathi.jpg'
   },
   { 
     role: 'District Leo Chairperson', 
     name: 'Lion Viduranga Maddumage', 
-    photo: '/images/council/viduranga.jpg' 
+    photo: '/images/council/Viduranga.jpg'
   },
   { 
     role: 'District Vice President', 
     name: 'Leo Lion Tehan Nakandala', 
-    photo: '/images/council/tehan.jpg' 
+    photo: '/images/council/Tehan.jpg'
   },
   { 
     role: 'District Secretary', 
     name: 'Leo Misal Silva', 
-    photo: '/images/council/misal.jpg' 
+    photo: '/images/council/Misal.jpg'
   },
   { 
     role: 'District Treasurer', 
     name: 'Leo Lion Muthula Liyanage', 
-    photo: '/images/council/muthula.jpg' 
+    photo: '/images/council/Muthula.jpg'
   },
 ];
 
@@ -184,23 +184,6 @@ export default function AboutPage() {
         <p className="mt-3 opacity-90">Our district fosters leadership through impactful service. Founded to empower youth, we champion community development, environmental sustainability, and personal growth.</p>
       </section>
 
-      {/* District Motto */}
-      <section className="text-center py-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative"
-        >
-          <h2 className="heading-serif text-4xl md:text-6xl font-bold bg-gradient-to-r from-rose via-fuchsia to-crimson bg-clip-text text-transparent px-2 py-1">
-            "Forge the Future"
-          </h2>
-          <div className="mt-2 text-sm opacity-70 font-medium tracking-wider">
-            DISTRICT MOTTO
-          </div>
-        </motion.div>
-      </section>
-
       <section className="grid md:grid-cols-2 gap-6">
         <div className="surface-card rounded-2xl p-6">
           <h2 className="heading-serif text-2xl font-semibold">Mission</h2>
@@ -292,7 +275,7 @@ export default function AboutPage() {
             <motion.div 
               whileHover={{ y: -6 }} 
               key={leader.name} 
-              className="rounded-xl p-4 surface-card group"
+              className="w-full max-w-[208px] rounded-xl p-4 surface-card group"
             >
               <div className="relative w-full aspect-square overflow-hidden rounded-lg bg-black/5">
                 <NextImage
