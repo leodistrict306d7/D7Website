@@ -176,7 +176,6 @@ export async function POST(req: NextRequest) {
             <p style="font-size: 14px; color: #666;">Our district officials will verify your bank slip. Once confirmed, we will process your order for delivery.</p>
             
             <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
-              <p style="margin: 0; font-weight: bold; color: #710F38;">Forge the Future!</p>
               <p style="margin: 0; font-size: 14px; color: #999;">Leo District 306 D7 — Sri Lanka</p>
             </div>
           </div>

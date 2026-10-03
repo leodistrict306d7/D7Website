@@ -1,6 +1,5 @@
 "use client";
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
@@ -41,7 +40,6 @@ export default function HomePage() {
   const [installationCountdown, setInstallationCountdown] = useState<InstallationCountdown | null>(null);
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   // Contact form state
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
@@ -54,15 +52,12 @@ export default function HomePage() {
   const [recaptchaSize, setRecaptchaSize] = useState<'normal'|'compact'>('normal');
 
   useEffect(() => {
-    const startInterval = () => {
-      intervalRef.current = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5000);
-    };
-    
-    startInterval();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
+    const timeoutId = window.setTimeout(() => {
+      setIndex((currentIndex) => (currentIndex + 1) % slides.length);
+    }, 5000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [index]);
 
   useEffect(() => {
     const updateCountdown = () => {
@@ -107,6 +102,7 @@ export default function HomePage() {
   // Touch handlers for hero slideshow
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
+    touchEndX.current = touchStartX.current;
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -116,11 +112,10 @@ export default function HomePage() {
   const handleTouchEnd = () => {
     const swipeThreshold = 50;
     const swipeDistance = touchStartX.current - touchEndX.current;
+    touchStartX.current = 0;
+    touchEndX.current = 0;
     
     if (Math.abs(swipeDistance) > swipeThreshold) {
-      // Clear existing interval
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      
       if (swipeDistance > 0) {
         // Swipe left - next slide
         setIndex((prev) => (prev + 1) % slides.length);
@@ -128,11 +123,6 @@ export default function HomePage() {
         // Swipe right - previous slide
         setIndex((prev) => (prev - 1 + slides.length) % slides.length);
       }
-      
-      // Restart interval after manual swipe
-      setTimeout(() => {
-        intervalRef.current = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5000);
-      }, 1000);
     }
   };
 
@@ -146,15 +136,14 @@ export default function HomePage() {
         onTouchEnd={handleTouchEnd}
       >
         {slides.map((src, i) => (
-          <motion.div
+          <div
             key={src}
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: i === index ? 1 : 0 }}
-            transition={{ duration: 1.2 }}
+            className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+            style={{ opacity: i === index ? 1 : 0 }}
+            aria-hidden={i !== index}
           >
             <Image src={src} alt="District event" fill className="object-cover select-none" draggable={false} priority={i === 0} />
-          </motion.div>
+          </div>
         ))}
         <div className="absolute inset-0 bg-black/40" />
         
@@ -163,7 +152,10 @@ export default function HomePage() {
           {slides.map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => setIndex(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              aria-current={i === index ? 'true' : undefined}
               className={`w-2 h-2 rounded-full transition-colors ${
                 i === index ? 'bg-white' : 'bg-white/40'
               }`}

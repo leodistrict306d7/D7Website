@@ -199,7 +199,6 @@ export default function ProjectsClient({ initialProjects }: ProjectsClientProps)
     <div className="space-y-6">
       <div className="text-center space-y-2">
         <h1 className="heading-serif text-3xl font-bold">Projects</h1>
-        <p className="text-lg opacity-80">Forge the Future - Leo District 306 D7</p>
       </div>
 
       <div className="flex flex-wrap gap-2 justify-center">

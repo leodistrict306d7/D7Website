@@ -81,7 +81,7 @@ function loadStructuredData() {
         name: "Leo Lion Nipuni Wijesekara",
         position: "District President",
         contact: "+94 77 624 3300",
-        bio: "Leading Leo District 306 D7 with the theme 'Forge the Future'",
+        bio: "Leading district initiatives and supporting Leo District 306 D7",
         type: "District President",
         source: "fallback-data"
       },
@@ -142,7 +142,6 @@ const DISTRICT_KNOWLEDGE = {
       name: "Leo Lion Nipuni Wijesekara",
       title: "District President",
       contact: "+94 77 624 3300",
-      theme: "Forge the Future"
     },
     vicePresident: {
       name: "Leo Lion Tehan Nakandala",
@@ -173,7 +172,6 @@ const DISTRICT_KNOWLEDGE = {
   },
   values: {
     moto: "Leadership, Experience, and Opportunity",
-    theme: "Forge the Future",
     mission: "Fostering leadership through service by empowering youth, building communities, and creating impact"
   }
 };
@@ -359,7 +357,7 @@ class IntelligentResponseEngine {
         name: "Leo Lion Nipuni Wijesekara",
         position: "District President",
         contact: "+94 77 624 3300",
-        bio: "Leading Leo District 306 D7 with the theme 'Forge the Future'",
+        bio: "Leading district initiatives and supporting Leo District 306 D7",
         type: "District President"
       },
       {
@@ -469,7 +467,6 @@ District Facts:
 - District: Leo District 306 D7
 - President: Leo Lion Nipuni Wijesekara
 - Immediate Past President: Leo Lion Hansathi Imethma
-- Theme: "Forge the Future"
 - Coverage: Colombo and Ratnapura districts
 - Clubs: 37 Leo Clubs
 - Members: Over 2,000 Leos
@@ -559,7 +556,7 @@ function getCouncilMemberResponse(message) {
       name: "Leo Lion Nipuni Wijesekara",
       position: "District President",
       contact: "+94 77 624 3300",
-      bio: "Leading Leo District 306 D7 with the theme 'Forge the Future'",
+      bio: "Leading district initiatives and supporting Leo District 306 D7",
       keywords: ["nipuni", "wijesekara", "president", "district president"]
     },
     {
@@ -727,15 +724,15 @@ async function generateContextualResponse(message, _context) {
   }
 
   if (lowerMessage.includes('join') || lowerMessage.includes('membership')) {
-    return `Joining Leo District 306 D7 is a fantastic way to develop leadership skills while serving your community! We have 37 Leo clubs across Colombo and Ratnapura districts, with options for both school students (Alpha Leos) and young professionals (Omega Leos).\n\nTo get started:\n1. Visit d7leos.org to find a club near you\n2. Contact the district leadership at leodistrict306d7@gmail.com or +94 77 624 3300\n3. Attend a club meeting as a guest\n4. Complete the membership process\n\nOur theme this year is "Forge the Future" - we'd love to have you join us in making a positive impact!`;
+    return `Joining Leo District 306 D7 is a fantastic way to develop leadership skills while serving your community! We have 37 Leo clubs across Colombo and Ratnapura districts, with options for both school students (Alpha Leos) and young professionals (Omega Leos).\n\nTo get started:\n1. Visit d7leos.org to find a club near you\n2. Contact the district leadership at leodistrict306d7@gmail.com or +94 77 624 3300\n3. Attend a club meeting as a guest\n4. Complete the membership process\n\nWe'd love to have you join us in making a positive impact!`;
   }
 
   if (lowerMessage.includes('club') || lowerMessage.includes('clubs')) {
-    return `Leo District 306 D7 has 37 active Leo clubs serving communities across Colombo and Ratnapura districts. Our clubs include both school-based Alpha Leo clubs and community-based Omega Leo clubs, providing opportunities for young people aged 12-30 to develop leadership skills through service.\n\nEach club has its own focus areas and projects, but all work under our district theme "Forge the Future." For information about specific clubs or meeting locations, visit d7leos.org or contact our district leadership.`;
+    return `Leo District 306 D7 has 37 active Leo clubs serving communities across Colombo and Ratnapura districts. Our clubs include both school-based Alpha Leo clubs and community-based Omega Leo clubs, providing opportunities for young people aged 12-30 to develop leadership skills through service.\n\nEach club has its own focus areas and projects. For information about specific clubs or meeting locations, visit d7leos.org or contact our district leadership.`;
   }
 
   // Default contextual response
-  return `Thank you for your interest in Leo District 306 D7! Based on our district information, we're a vibrant community of over 2,000 young leaders serving across Colombo and Ratnapura districts. Our theme this year is "Forge the Future," and we're committed to developing leadership through service.\n\nFor more detailed information about specific topics, please feel free to ask about our clubs, projects, leadership team, or how to get involved. You can also visit d7leos.org or contact us at leodistrict306d7@gmail.com.`;
+  return `Thank you for your interest in Leo District 306 D7! Based on our district information, we're a vibrant community of over 2,000 young leaders serving across Colombo and Ratnapura districts. We're committed to developing leadership through service.\n\nFor more detailed information about specific topics, please feel free to ask about our clubs, projects, leadership team, or how to get involved. You can also visit d7leos.org or contact us at leodistrict306d7@gmail.com.`;
 }
 
 // Enhanced POST Handler with Hybrid Intelligence System

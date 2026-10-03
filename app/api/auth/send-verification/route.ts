@@ -73,7 +73,7 @@ export async function POST(req: Request) {
               <a href="${link}" class="button">Verify Email Address</a>
             </div>
             <p style="margin-top: 30px; font-size: 14px; opacity: 0.8;">If you didn't create this account, you can safely ignore this email.</p>
-            <p><strong>Forge the Future!</strong><br>Leo District 306 D7 Team</p>
+            <p><strong>Leo District 306 D7 Team</strong></p>
           </div>
           <div class="footer">
             <p>&copy; ${new Date().getFullYear()} Leo District 306 D7 — Sri Lanka</p>

@@ -18,11 +18,11 @@ const AscentChatBot = dynamic(() => import('../components/LeoChatBot'), {
 export const metadata: Metadata = {
   metadataBase: new URL('https://d7leos.org'),
   title: {
-    default: 'Leo District 306 D7 - Forge the Future',
+    default: 'Leo District 306 D7',
     template: '%s · Leo District 306 D7'
   },
   description: 'Official website for Leo District 306 D7 — Fostering leadership through service by empowering youth, building communities, and creating impact across Colombo and Ratnapura districts.',
-  keywords: ['Leo District 306 D7', 'Leo Clubs', 'Lions International', 'Youth Leadership', 'Community Service', 'Sri Lanka', 'Colombo', 'Ratnapura', 'Forge the Future'],
+  keywords: ['Leo District 306 D7', 'Leo Clubs', 'Lions International', 'Youth Leadership', 'Community Service', 'Sri Lanka', 'Colombo', 'Ratnapura'],
   authors: [{ name: 'Leo District 306 D7' }],
   creator: 'Leo District 306 D7',
   publisher: 'Leo District 306 D7',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: 'https://d7leos.org'
   },
   openGraph: {
-    title: 'Leo District 306 D7 - Forge the Future',
+    title: 'Leo District 306 D7',
     description: 'Fostering leadership through service by empowering youth, building communities, and creating impact across Colombo and Ratnapura districts.',
     url: 'https://d7leos.org',
     siteName: 'Leo District 306 D7',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Leo District 306 D7 - Forge the Future',
+    title: 'Leo District 306 D7',
     description: 'Fostering leadership through service by empowering youth, building communities, and creating impact.',
     images: ['/logos/dp.png'],
     creator: '@d7leos'
@@ -124,7 +124,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             "logo": "https://d7leos.org/logos/dp.png",
             "description": "Fostering leadership through service by empowering youth, building communities, and creating impact across Colombo and Ratnapura districts.",
             "foundingDate": "2025",
-            "slogan": "Forge the Future",
             "areaServed": [
               {
                 "@type": "AdministrativeArea",
