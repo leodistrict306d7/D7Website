@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="User placeholder silhouette">
+  <rect width="256" height="256" rx="24" fill="#1F2937"/>
+  <circle cx="128" cy="92" r="44" fill="#9CA3AF"/>
+  <path d="M40 212c0-38.66 35.82-64 88-64s88 25.34 88 64v12H40v-12z" fill="#9CA3AF"/>
+</svg>

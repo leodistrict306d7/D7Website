@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://d7leos.org/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /analytics/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /council
+Allow: /projects
+Allow: /lms
+Allow: /all-rounders

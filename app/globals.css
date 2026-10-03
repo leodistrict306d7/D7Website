@@ -1,0 +1,560 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts: Poppins (body) + Josefin Sans (headings) - optimized loading */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap') layer(fonts);
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Improve text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * District 306 D7 brand palette
+ * Derived from the supplied President's logo:
+ * Gold       #E3B74C
+ * Gold Deep  #B88F43
+ * Wine       #7A1751
+ * Maroon     #7B1945
+ * Plum       #8A3473
+ * Deep Plum  #6C193D
+ */
+:root {
+  /* Core brand colours */
+  --brand-gold: 227 183 76;
+  --brand-gold-soft: 244 216 130;
+  --brand-gold-deep: 184 143 67;
+
+  --brand-wine: 122 23 81;
+  --brand-maroon: 123 25 69;
+  --brand-plum: 138 52 115;
+  --brand-plum-soft: 170 92 147;
+  --brand-plum-deep: 108 25 61;
+
+  --brand-ivory: 255 249 238;
+  --brand-cream: 250 241 220;
+  --brand-ink: 45 24 37;
+
+  /* Semantic theme */
+  --bg: 255 249 238;
+  --fg: 45 24 37;
+  --heading: 108 25 61;
+  --link: 138 52 115;
+  --link-hover: 122 23 81;
+
+  /* Decorative gradients */
+  --g1: 138 52 115;
+  --g2: 227 183 76;
+  --g3: 122 23 81;
+
+  /* Surfaces */
+  --surface: 255 253 248;
+  --surface-strong: 255 249 238;
+  --surface-muted: 250 241 220;
+  --surface-border: 227 183 76;
+
+  /* Buttons */
+  --btn-bg: 122 23 81;
+  --btn-bg-hover: 108 25 61;
+  --btn-text: 255 255 255;
+
+  --btn2-bg: 227 183 76;
+  --btn2-hover: 184 143 67;
+  --btn2-text: 45 24 37;
+
+  /* Backward-compatible aliases */
+  --maroon: 122 23 81;
+  --gold: 227 183 76;
+}
+
+.dark {
+  /* Rich, ceremonial dark theme built around burgundy/plum */
+  --bg: 18 9 18;
+  --fg: 250 241 220;
+  --heading: 244 216 130;
+  --link: 214 157 198;
+  --link-hover: 244 216 130;
+
+  --g1: 122 23 81;
+  --g2: 227 183 76;
+  --g3: 138 52 115;
+
+  --surface: 31 15 28;
+  --surface-strong: 43 18 36;
+  --surface-muted: 55 24 46;
+  --surface-border: 184 143 67;
+
+  --btn-bg: 138 52 115;
+  --btn-bg-hover: 170 92 147;
+  --btn-text: 255 255 255;
+
+  --btn2-bg: 227 183 76;
+  --btn2-hover: 244 216 130;
+  --btn2-text: 45 24 37;
+
+  --maroon: 170 92 147;
+  --gold: 227 183 76;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background: rgb(var(--bg));
+}
+
+body {
+  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: rgb(var(--fg));
+  background-color: rgb(var(--bg));
+  background-image:
+    radial-gradient(1000px 520px at 8% -5%, rgba(var(--g1), 0.11), transparent 58%),
+    radial-gradient(900px 520px at 96% 8%, rgba(var(--g2), 0.10), transparent 58%),
+    radial-gradient(1050px 580px at 86% 108%, rgba(var(--g3), 0.08), transparent 62%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(1000px 560px at 8% -8%, rgba(var(--g1), 0.24), transparent 58%),
+    radial-gradient(900px 520px at 96% 6%, rgba(var(--g2), 0.10), transparent 60%),
+    radial-gradient(1000px 600px at 84% 110%, rgba(var(--g3), 0.20), transparent 64%);
+}
+
+/* Selection and keyboard focus */
+::selection {
+  background: rgba(var(--brand-gold), 0.45);
+  color: rgb(var(--brand-plum-deep));
+}
+
+:focus-visible {
+  outline: 3px solid rgba(var(--brand-gold), 0.75);
+  outline-offset: 3px;
+}
+
+/* Headings and links */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgb(var(--heading));
+}
+
+a {
+  color: rgb(var(--link));
+  text-underline-offset: 3px;
+  transition: color 180ms ease;
+}
+
+a:hover {
+  color: rgb(var(--link-hover));
+}
+
+/* Enhanced surface for cards/boxes */
+.surface-card {
+  @apply backdrop-blur-lg rounded-xl transition-all duration-300;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--surface), 0.96),
+      rgba(var(--surface-muted), 0.82)
+    );
+  border: 1px solid rgba(var(--surface-border), 0.38);
+  box-shadow:
+    0 18px 45px rgba(var(--brand-plum-deep), 0.09),
+    0 2px 8px rgba(var(--brand-gold-deep), 0.07);
+  color: rgb(var(--fg));
+}
+
+.surface-card * {
+  color: inherit;
+}
+
+.surface-card:hover {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--surface), 0.99),
+      rgba(var(--surface-muted), 0.90)
+    );
+  border-color: rgba(var(--brand-gold), 0.62);
+  box-shadow:
+    0 22px 55px rgba(var(--brand-plum-deep), 0.13),
+    0 3px 10px rgba(var(--brand-gold-deep), 0.10);
+  transform: translateY(-2px);
+}
+
+.dark .surface-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--surface-strong), 0.88),
+      rgba(var(--surface), 0.78)
+    );
+  border-color: rgba(var(--brand-gold), 0.26);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(var(--brand-plum), 0.08);
+  color: rgb(var(--fg));
+}
+
+.dark .surface-card:hover {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--surface-strong), 0.96),
+      rgba(var(--surface-muted), 0.84)
+    );
+  border-color: rgba(var(--brand-gold), 0.46);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.46),
+    0 0 34px rgba(var(--brand-gold), 0.08);
+}
+
+/* Buttons */
+.btn-primary {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--btn-bg)),
+      rgb(var(--brand-plum))
+    );
+  color: rgb(var(--btn-text));
+  box-shadow: 0 8px 22px rgba(var(--brand-wine), 0.22);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.btn-primary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--btn-bg-hover)),
+      rgb(var(--brand-wine))
+    );
+  box-shadow: 0 11px 28px rgba(var(--brand-wine), 0.30);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--btn2-bg)),
+      rgb(var(--brand-gold-soft))
+    );
+  color: rgb(var(--btn2-text));
+  box-shadow: 0 8px 20px rgba(var(--brand-gold-deep), 0.20);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.btn-secondary:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--brand-gold-soft)),
+      rgb(var(--btn2-hover))
+    );
+  color: rgb(var(--brand-plum-deep));
+  box-shadow: 0 11px 26px rgba(var(--brand-gold-deep), 0.28);
+  transform: translateY(-1px);
+}
+
+.dark .btn-secondary {
+  color: rgb(var(--btn2-text));
+}
+
+/* Enhanced Liquid/Frosted glass utility */
+.glass {
+  @apply backdrop-blur-md;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(var(--surface), 0.92),
+      rgba(var(--brand-cream), 0.82)
+    );
+  border: 1px solid rgba(var(--brand-gold), 0.28);
+  box-shadow:
+    0 8px 28px rgba(var(--brand-plum-deep), 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.70);
+  color: rgb(var(--fg));
+}
+
+.dark .glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(var(--surface-strong), 0.82),
+      rgba(var(--surface), 0.70)
+    );
+  border: 1px solid rgba(var(--brand-gold), 0.22);
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(var(--brand-gold-soft), 0.05);
+  color: rgb(var(--fg));
+}
+
+/* Brand color utilities */
+.text-gold { color: rgb(var(--gold)); }
+.bg-gold { background-color: rgb(var(--gold)); }
+.text-maroon { color: rgb(var(--maroon)); }
+.bg-maroon { background-color: rgb(var(--maroon)); }
+.bg-maroon-700 { background-color: rgb(var(--brand-plum-deep)); }
+.border-gold { border-color: rgb(var(--gold)); }
+
+/* Optional new brand helpers */
+.text-plum { color: rgb(var(--brand-plum)); }
+.text-wine { color: rgb(var(--brand-wine)); }
+.bg-plum { background-color: rgb(var(--brand-plum)); }
+.bg-wine { background-color: rgb(var(--brand-wine)); }
+.border-plum { border-color: rgb(var(--brand-plum)); }
+
+.brand-gradient {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--brand-wine)) 0%,
+    rgb(var(--brand-plum)) 48%,
+    rgb(var(--brand-gold)) 100%
+  );
+}
+
+.brand-gradient-text {
+  background: linear-gradient(
+    100deg,
+    rgb(var(--brand-wine)),
+    rgb(var(--brand-plum)),
+    rgb(var(--brand-gold-deep))
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heading-serif {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Simple page transition fade */
+.page-enter {
+  opacity: 0.01;
+}
+
+.page-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0.01;
+  transition: opacity 200ms ease-out;
+}
+
+/* Smooth marquee animation for logo carousel */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+/* Cross-browser horizontal mask fade */
+.mask-fade-x {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--brand-cream), 0.62);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(var(--brand-gold-deep), 0.82),
+      rgba(var(--brand-plum), 0.82)
+    );
+  border-radius: 10px;
+  border: 1px solid rgba(var(--brand-gold-soft), 0.38);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--brand-gold)),
+      rgb(var(--brand-wine))
+    );
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: rgba(var(--surface), 0.58);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(var(--brand-gold), 0.82),
+      rgba(var(--brand-plum-soft), 0.82)
+    );
+  border: 1px solid rgba(var(--brand-gold-soft), 0.16);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      135deg,
+      rgb(var(--brand-gold-soft)),
+      rgb(var(--brand-plum))
+    );
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(var(--brand-plum), 0.72)
+    rgba(var(--brand-cream), 0.62);
+}
+
+.dark * {
+  scrollbar-color:
+    rgba(var(--brand-gold), 0.78)
+    rgba(var(--surface), 0.62);
+}
+
+/* Biography content styling */
+.biography-content {
+  color: rgb(var(--fg));
+}
+
+.dark .biography-content {
+  color: rgb(var(--fg));
+}
+
+.biography-content p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.biography-content p:last-child {
+  margin-bottom: 0;
+}
+
+.biography-content strong {
+  font-weight: 600;
+  color: rgb(var(--heading));
+}
+
+.biography-content a {
+  color: rgb(var(--link));
+  text-decoration: underline;
+  text-decoration-color: rgba(var(--brand-gold-deep), 0.55);
+  text-underline-offset: 3px;
+}
+
+.biography-content a:hover {
+  color: rgb(var(--link-hover));
+  text-decoration-color: rgb(var(--brand-gold));
+}
+
+.biography-content ul {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+  color: inherit;
+}
+
+.biography-content ul ul {
+  list-style-type: circle;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.biography-content li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.biography-content li::marker {
+  color: rgb(var(--brand-gold-deep));
+}
+
+.dark .biography-content li::marker {
+  color: rgb(var(--brand-gold));
+}
+
+.biography-content li.text-gray-800 {
+  color: inherit;
+}
+
+.biography-content li.dark\:text-gray-200 {
+  color: inherit;
+}
+
+.biography-content h3,
+.biography-content h4 {
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: rgb(var(--heading));
+}
+
+.dark .biography-content h3,
+.dark .biography-content h4 {
+  color: rgb(var(--heading));
+}
+
+.biography-content h3 {
+  font-size: 1.125rem;
+}
+
+.biography-content h4 {
+  font-size: 1rem;
+}

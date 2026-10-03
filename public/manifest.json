@@ -1,0 +1,88 @@
+{
+  "name": "Leo District 306 D7 - Forge the Future",
+  "short_name": "D7 Leos",
+  "description": "Fostering leadership through service by empowering youth, building communities, and creating impact across Colombo and Ratnapura districts.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#710F38",
+  "categories": ["education", "lifestyle", "social"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "72x72", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "96x96", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "128x128", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "144x144", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "152x152", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "192x192", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "384x384", 
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { 
+      "src": "/logos/dp.png", 
+      "sizes": "512x512", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "About Us",
+      "short_name": "About",
+      "description": "Learn about Leo District 306 D7",
+      "url": "/about",
+      "icons": [{ "src": "/logos/dp.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View our community projects",
+      "url": "/projects",
+      "icons": [{ "src": "/logos/dp.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "LMS",
+      "short_name": "LMS",
+      "description": "Access Learning Management System",
+      "url": "/lms",
+      "icons": [{ "src": "/logos/dp.png", "sizes": "96x96" }]
+    }
+  ]
+}
